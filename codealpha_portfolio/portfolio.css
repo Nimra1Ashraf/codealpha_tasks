@@ -1,0 +1,132 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-align: center;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    min-height: 100vh;
+    background:transparent;
+}
+
+#myself{
+    height: 200px;
+    width: 400px;
+    padding-left: 20px;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+#certif{
+    text-align: justify;
+}
+
+.main-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 40px;
+    /* gap:40px; */
+}
+
+.left-section , .right-section{
+    width: 35%;
+}
+
+.center-section{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+.center-section img{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    margin-top: 100px;
+    border:5px solid brown;
+    /* object-fit: cover; */
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:80px;
+    width: 100%;
+    position:sticky;
+    top:0;
+    background: rgb(231, 198, 155);
+    box-shadow: 0 10px 20px(rgba(0 0 0 0.5));
+    backdrop-filter: blur(10px);
+    z-index: 999;
+}
+
+.navbar-container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+}
+
+.navbar-logo{
+    font-size: 2rem;
+    font-weight: 700;
+    color: brown;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navbar-container {
+    display: flex;
+    text-align: center;
+    gap: 1.5em;
+    list-style: none;
+}
+
+.navbar-container a{
+    text-decoration: none;
+    color: brown;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.7s ease;
+    white-space: nowrap;
+}
+
+.navbar-container a:hover{
+    color: black;
+    background: rgba(188,212,229,0.8);
+    border: 2px solid rgb(65, 25, 25);
+}
+
+h2{
+    color:brown;
+    text-align: justify;
+}
+
+p, h4, a{
+    text-align: justify;
+}
+h3{
+    text-align: justify;
+    color:black;
+    text-decoration: 2px solid underline;
+}
+
+a{
+    text-align: justify;
+    display: inline;
+    justify-content: space-between;
+    gap: 3.5em;
+}
+.card{
+    text-align: left;
+}
