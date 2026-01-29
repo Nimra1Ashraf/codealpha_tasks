@@ -7,7 +7,8 @@ This web-based calculator performs basic arithmetic operations such as addition,
 - User-friendly interface  
 - Responsive design  
 - Supports basic mathematical operations  
-- Clear and delete functionality  
+- Clear and delete functionality
+- Keyboard support and styling enhancements
 
 ## 🔹 Technologies Used
 - HTML  
@@ -17,8 +18,8 @@ This web-based calculator performs basic arithmetic operations such as addition,
 ## 🔹 How to Use
 1. Open the calculator in a browser  
 2. Click on the numbers and operators || Use the keyboard to give input
-3. Press "=" to get the result  
-4. Use "Clear" button to clear the input  
+3. Press "=" or click "Enter" to get the result  
+4. Use "Clear" button  or "Backspace" to clear the input/output  
 
 ## 🔹 Purpose
 This project was created to practice JavaScript DOM manipulation and basic logic building.
