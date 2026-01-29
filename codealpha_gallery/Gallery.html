@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        body {
+            font-family: "Times New Roman", sans-serif;
+            background: linear-gradient(rgb(180, 218, 234),rgb(19, 166, 228));
+            color: rgb(10, 10, 10);
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            color: rgb(17, 53, 108);
+            margin-top: 40px;
+            font-size: 3.5em;
+            text-shadow: 1px 1px 3px rgba(13, 71, 161, 0.2);
+        }
+
+        
+        button {
+            height: 50px;
+            width: 200px;
+            border-radius: 10px;
+            border: 3px solid black;
+            font-size: 25px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        button.active {
+            color: white;
+            background-color: #0B5ED7;
+        }        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .lb-close, .lb-prev, .lb-next {
+            position: absolute;
+            color: white;
+            font-size: 40px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .lb-close { top: 20px; right: 30px; }
+        .lb-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+        .lb-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+        @keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-20px); }
+  60% { transform: translateY(-10px); }
+}
+
+img:hover {
+    animation: bounce 0.6s;
+}
+
+        @media (max-width: 768px) {
+            .gallery img {
+                height: 150px;
+            }
+            .lb-close, .lb-prev, .lb-next { font-size: 30px; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery img { height: 120px; }
+            .buttons button { font-size: 16px; padding: 8px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+
+        <h1>Gallery</h1>
+        <br>
+        <div class="buttons">
+            <button data-category="nature" class="active">Nature</button>
+            <button data-category="animals">Animals</button>
+            <button data-category="birds">Birds</button>
+        </div>
+        <br>
+        <br>
+        <div id="gallery" class="gallery">
+            <img src="https://img.freepik.com/free-photo/view-beautiful-rainbow-nature-landscape_23-2151597605.jpg?semt=ais_hybrid&w=740&q=80" alt="n1" data-category="nature">
+            <img src="https://img.freepik.com/free-photo/nature-scene-usa-vegetation-flora_23-2149870974.jpg?semt=ais_hybrid&w=740&q=80." alt="n2" data-category="nature">
+            <img src="https://img.freepik.com/free-photo/photorealistic-rainbow-with-countryside-nature-landscape_23-2151597630.jpg?semt=ais_hybrid&w=740&q=80" alt="n3" data-category="nature">
+            <img src="https://img.freepik.com/free-photo/beautiful-landscape-shot-lake-green-mountains-jiuzhaigou-national-park-china_181624-43867.jpg?semt=ais_hybrid&w=740&q=80" alt="n4" data-category="nature">
+            <img src="https://img.freepik.com/free-photo/shiraito-waterfall-autumn-japan_335224-193.jpg?semt=ais_hybrid&w=740&q=80" alt="n5" data-category="nature">
+
+            <img src="https://img.freepik.com/free-photo/closeup-shot-two-zebras-cuddling_181624-5940.jpg" alt="a1" data-category="animals">
+            <img src="https://media.istockphoto.com/id/1458215547/photo/brown-bear.jpg?s=612x612&w=0&k=20&c=MRQhtNC_-P0llLRwwA3wmbQL6iroSjUla1PmvvEWCZU=" alt="a2" data-category="animals">
+            <img src="https://img.freepik.com/free-photo/sumatran-tiger-nature-looking-habitat-zoo-wild-animals-captivity-critically-endangered-species-greatest-feline_475641-1852.jpg?semt=ais_hybrid&w=740&q=80" alt="a3" data-category="animals">
+            <img src="https://static.boredpanda.com/blog/wp-content/uploads/2025/07/cute-wild-animals-2-686e3652d7b64__700.jpg" alt="a4" data-category="animals">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqAkPJ0QWGBNWQjhgRYElICvy_TdHVKLfUlw&s" alt="a5" data-category="animals">
+
+            <img src="https://img.freepik.com/premium-photo/group-birds-are-sitting-branch-with-one-them-has-red-spot-back_1045911-2871.jpg?semt=ais_hybrid&w=740&q=80" alt="b1" data-category="birds">
+            <img src="https://img.freepik.com/premium-photo/vibrant-bee-eater-perched-branch_1410957-52237.jpg" alt="b2" data-category="birds">
+            <img src="https://img.freepik.com/free-psd/vibrant-colorful-parrots-stunning-closeup_191095-79194.jpg?semt=ais_hybrid&w=740&q=80" alt="b3" data-category="birds">
+            <img src="https://img.freepik.com/free-photo/vividly-colored-hummingbird-natural-environment_23-2151495384.jpg" alt="b4" data-category="birds">
+            <img src="https://img.freepik.com/premium-photo/birds-perched-stylish-bandanas_971991-20730.jpg?semt=ais_hybrid&w=740&q=80" alt="b5" data-category="birds">
+
+        </div>
+
+    </center>
+    <div id="lightbox" class="lightbox">
+        <span class="lb-close">&times;</span>
+        <button class="lb-prev">❮</button>
+        <img id="lb-img">
+        <button class="lb-next">❯</button>
+    </div>
+<script>
+
+const buttons = document.querySelectorAll(".buttons button");
+const galleryImages = document.querySelectorAll("#gallery img");
+
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const category = btn.getAttribute("data-category");
+        galleryImages.forEach(img => {
+            if(img.getAttribute("data-category") === category){
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        });
+    });
+});
+
+buttons[0].click();
+
+const lightbox = document.getElementById("lightbox");
+const lbImg = document.getElementById("lb-img");
+const closeBtn = document.querySelector(".lb-close");
+const nextBtn = document.querySelector(".lb-next");
+const prevBtn = document.querySelector(".lb-prev");
+
+let currentImages = [];  
+let currentIndex = 0;
+
+galleryImages.forEach(img => {
+    img.addEventListener("click", function() {
+        currentImages = Array.from(galleryImages).filter(i => i.style.display !== "none");
+        currentIndex = currentImages.indexOf(this);
+
+        lbImg.src = this.src;
+        lightbox.style.display = "flex";
+    });
+});
+
+
+closeBtn.onclick = () => lightbox.style.display = "none";
+
+
+nextBtn.onclick = () => {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    lbImg.src = currentImages[currentIndex].src;
+}
+
+
+prevBtn.onclick = () => {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    lbImg.src = currentImages[currentIndex].src;
+}
+
+document.addEventListener("keydown", e => {
+    if(lightbox.style.display !== "flex") return;
+
+    if(e.key === "Escape") closeBtn.click();
+    if(e.key === "ArrowRight") nextBtn.click();
+    if(e.key === "ArrowLeft") prevBtn.click();
+});
+</script>
+
+</body>
+
+</html>
